@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کتابخانه اشتراکی | صفحه اصلی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- لینک به فایل CSS جداگانه -->
+    <link rel="stylesheet" href="/static/library/style.css">
+</head>
+<body>
+    <!-- هدر -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">کتاب<span>واره</span></a>
+            
+            <!-- نوار جستجو -->
+            <div class="search-container">
+                <form action="{% url 'search' %}" method="GET" class="search-form">
+                    <input type="text" name="q" placeholder="جستجوی کتاب، نویسنده یا دسته‌بندی..." class="search-input">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="nav-links">
+                <a href="#">خانه</a>
+                <a href="#">کتاب‌ها</a>
+                <a href="#">دسته‌بندی‌ها</a>
+                <a href="#">تماس با ما</a>
+                <a href="#">ورود / ثبت‌نام</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- هیرو -->
+    <section class="hero">
+        <div class="container">
+            <h1>پرواز در دنیای کتاب‌ها</h1>
+            <p>کتاب بخوانید، به اشتراک بگذارید و دنیایی از دانش را کشف کنید</p>
+            <a href="#" class="cta-button">شروع کنید <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </section>
+
+    <!-- کتاب‌های پرطرفدار -->
+    <section class="container">
+        <div class="section">
+            <h2 class="section-title">پرفروش‌ترین‌ها</h2>
+            <div class="book-grid">
+                {% for book in popular_books %}
+<a href="{% url 'book_detail' book.id %}" style="text-decoration: none; color: inherit;">
+    <div class="book-card">
+        {% if book.image %}
+        <img src="{{ book.image.url }}" alt="{{ book.title }}" class="book-cover-img">
+        {% else %}
+        <div class="book-cover">
+            <i class="fas fa-book"></i>
+        </div>
+        {% endif %}
+        <h3 class="book-title">{{ book.title }}</h3>
+        <p class="book-author">{{ book.author }}</p>
+        <span class="book-price">{{ book.deposit_value }} تومان</span>
+    </div>
+</a>
+{% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- کتاب‌های جدید -->
+    <section class="container">
+        <div class="section">
+            <h2 class="section-title">تازه‌های کتابواره</h2>
+            <div class="book-grid">
+               {% for book in popular_books %}
+<a href="{% url 'book_detail' book.id %}" style="text-decoration: none; color: inherit;">
+    <div class="book-card">
+        {% if book.image %}
+        <img src="{{ book.image.url }}" alt="{{ book.title }}" class="book-cover-img">
+        {% else %}
+        <div class="book-cover">
+            <i class="fas fa-book"></i>
+        </div>
+        {% endif %}
+        <h3 class="book-title">{{ book.title }}</h3>
+        <p class="book-author">{{ book.author }}</p>
+        <span class="book-price">{{ book.deposit_value }} تومان</span>
+    </div>
+</a>
+{% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- دسته‌بندی‌ها -->
+    <section class="container">
+        <div class="section">
+            <h2 class="section-title">دسته‌بندی‌ها</h2>
+            <div class="book-grid">
+                {% for category in categories %}
+                <div class="book-card">
+                    <div class="book-cover">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3 class="book-title">{{ category.name }}</h3>
+                    <p class="book-author">{{ category.book_set.count }} کتاب</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتور -->
+    <footer class="footer">
+        <div class="container">
+            <p>© ۲۰۲۴ کتابواره - تمام حقوق محفوظ است</p>
+        </div>
+    </footer>
+</body>
+</html>

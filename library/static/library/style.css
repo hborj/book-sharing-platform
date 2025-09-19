@@ -1,0 +1,404 @@
+/* Reset و تنظیمات پایه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* هدر و نوار جستجو */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4a5568;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #667eea;
+}
+
+/* استایل نوار جستجو */
+.search-container {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 2rem;
+}
+
+.search-form {
+    display: flex;
+    background: white;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s;
+}
+
+.search-form:focus-within {
+    box-shadow: 0 6px 20px rgba(76, 110, 245, 0.3);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 15px 20px;
+    font-size: 1rem;
+    outline: none;
+    background: transparent;
+}
+
+.search-button {
+    background: #667eea;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: white;
+}
+
+.search-button:hover {
+    background: #5a67d8;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #667eea;
+}
+
+/* هیرو سکشن */
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    background: #ff6b6b;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+/* بخش کتاب‌ها */
+.section {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #4a5568;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #667eea;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.book-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e9ecef;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.book-cover {
+    width: 120px;
+    height: 180px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 10px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.book-cover-img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto 1rem;
+    display: block;
+    border: 2px solid #e9ecef;
+}
+
+.book-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+}
+
+.book-author {
+    color: #718096;
+    margin-bottom: 1rem;
+}
+
+.book-price {
+    background: #48bb78;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* فوتور */
+.footer {
+    background: #2d3748;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+/* رسپانسیو */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .search-container {
+        margin: 0;
+        max-width: 100%;
+    }
+    
+    .nav-links {
+        justify-content: center;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* استایل‌های صفحه جزئیات کتاب */
+.book-detail {
+    padding: 2rem;
+}
+
+.book-detail-header {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+}
+
+.book-detail-cover {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.book-detail-cover-placeholder {
+    width: 250px;
+    height: 350px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.book-detail-info h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.book-author {
+    font-size: 1.3rem;
+    color: #718096;
+    margin-bottom: 1rem;
+}
+
+.book-category, .book-stock, .book-deposit {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+}
+
+.book-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.secondary-button {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.secondary-button:hover {
+    background: #cbd5e0;
+}
+
+.book-description {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.book-description h2 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.book-reviews {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.book-reviews h2 {
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+}
+
+.review-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.review-user {
+    font-weight: bold;
+    color: #2d3748;
+}
+
+.review-rating {
+    color: #fbbf24;
+}
+
+.review-comment {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.review-date {
+    color: #718096;
+    font-size: 0.9rem;
+}
